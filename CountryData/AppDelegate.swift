@@ -13,9 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window =  UIWindow()
+        let mainViewController = CDViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.isNavigationBarHidden = false
+        navigationController.navigationBar.tintColor = UIColor.white
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barStyle = .default
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         return true
     }
 
@@ -41,6 +49,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-

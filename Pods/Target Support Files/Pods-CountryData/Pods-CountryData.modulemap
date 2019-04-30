@@ -1,0 +1,6 @@
+framework module Pods_CountryData {
+  umbrella header "Pods-CountryData-umbrella.h"
+
+  export *
+  module * { export * }
+}
