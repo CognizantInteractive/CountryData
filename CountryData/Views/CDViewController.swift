@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  CDViewController.swift
 //  CountryData
 //
-//  Created by CTS iMac Sierra on 30/04/19.
+//  Created by Mohammad Jahid on 30/04/19.
 //  Copyright © 2019 cognizant. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class CDViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -2,7 +2,7 @@
 //  CountryDataTests.swift
 //  CountryDataTests
 //
-//  Created by CTS iMac Sierra on 30/04/19.
+//  Created by Mohammad Jahid on 30/04/19.
 //  Copyright © 2019 cognizant. All rights reserved.
 //
 
