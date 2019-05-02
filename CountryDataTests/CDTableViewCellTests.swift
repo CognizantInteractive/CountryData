@@ -19,11 +19,13 @@ class CDTableViewCellTests: XCTestCase {
     func testImageDownloadWithValidUrl() {
         let expect = expectation(description: "return no error with valid image url expectation")
         let tableViewCell = CDTableViewCell()
-        let validImageUrl = AppConstants.ImageURLConstants.validImageUrl
+        let baseImageUrl = AppConstants.ImageURLConstants.baseImageUrl
+        let validImageUrl = baseImageUrl + AppConstants.ImageURLConstants.validImageUrl
         let photoUrl = URL(string: validImageUrl)
-        let placeholderImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
-        tableViewCell.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage) { (_, error, _, _) in
-            XCTAssertNil(error, "Error received")
+        let defaultImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
+        tableViewCell.photoImageView.sd_setImage(with: photoUrl,
+                                                 placeholderImage: defaultImage) { (_, error, _, _) in
+            XCTAssertNil(error, "Error found")
             expect.fulfill()
         }
         self.waitForExpectations(timeout: 10.0, handler: { (error) in
@@ -37,9 +39,10 @@ class CDTableViewCellTests: XCTestCase {
         let tableViewCell = CDTableViewCell()
         let inValidImageUrl = AppConstants.ImageURLConstants.inValidImageUrl
         let photoUrl = URL(string: inValidImageUrl)
-        let placeholderImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
-        tableViewCell.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage) { (_, error, _, _) in
-            XCTAssertNotNil(error, "No error received")
+        let defaultImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
+        tableViewCell.photoImageView.sd_setImage(with: photoUrl,
+                                                 placeholderImage: defaultImage) { (_, error, _, _) in
+            XCTAssertNotNil(error, "No error")
             expect.fulfill()
         }
         self.waitForExpectations(timeout: 30.0, handler: nil)

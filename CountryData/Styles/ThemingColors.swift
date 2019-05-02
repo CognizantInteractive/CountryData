@@ -11,7 +11,6 @@ import UIKit
 
 /// Theming Class for Colors
 class ThemingColors: UIColor {
-    
     // MARK: - Style
     class func globalGreyColor() -> UIColor {
         return UIColor(hexString: "808080")!
@@ -28,11 +27,9 @@ extension UIColor {
     convenience init(hex: Int) {
         self.init(red: (hex >> 16) & 0xff, green: (hex >> 8) & 0xff, blue: hex & 0xff, alpha: 1.0)
     }
-    
     convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat) {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
     }
-    
     convenience init?(hexString: String) {
         guard let hex = hexString.hexColorString else {
             return nil

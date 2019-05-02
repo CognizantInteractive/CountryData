@@ -19,7 +19,6 @@ class CDViewModel: NSObject {
     ///   - completionHandler: On Sucess
     ///   - failureHandler: On Failure
     func getTVList(completionHandler: @escaping SuccessClosure, failureHandler: @escaping FailureClosure) {
-        
         if let bytesMB = CalculateDeviceFreeSpace.deviceRemainingFreeSpaceInMegaBytes() {
             debugPrint("free space: \(bytesMB)")
             if bytesMB >= AppConstants.minimumFreeSpace {
@@ -27,7 +26,11 @@ class CDViewModel: NSObject {
                     if let modelObject = try? JSONDecoder().decode(TLResponseModel.self, from: data!) {
                         let parsedArray = modelObject.rows
                         // Filtered data which has all values nil
-                        let filteredArray = parsedArray?.filter {(($0.rdescription != nil) || ($0.rtitle != nil) || ($0.rimageHref != nil))}
+                        let filteredArray = parsedArray?.filter {
+                            ($0.rdescription != nil) ||
+                                ($0.rtitle != nil) ||
+                                ($0.rimageHref != nil)
+                        }
                         self?.tvData = filteredArray
                         self?.name = modelObject.ttitle
                         completionHandler(true, AppConstants.ClosureConstants.successDecodeMessage)
@@ -51,7 +54,8 @@ extension CDViewModel: UITableViewDataSource {
         return self.tvData?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.CellConstants.cellIdentifier, for: indexPath) as?  CDTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AppConstants.CellConstants.cellIdentifier,
+                                                       for: indexPath) as?  CDTableViewCell else {
             return UITableViewCell()
         }
         cell.indexPath = indexPath

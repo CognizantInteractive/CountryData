@@ -27,7 +27,7 @@ class CDViewControllerTests: XCTestCase {
         }, failureHandler: { (status, _) in
             XCTAssertEqual(status, false, "Different Failure Status")
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut, handler: { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut, handler: { (error) in
             XCTAssertNil(error, "Timed Out \(String(describing: error?.localizedDescription))")
         })
     }
@@ -46,7 +46,7 @@ class CDViewControllerTests: XCTestCase {
             XCTAssertEqual(status, false, "Wrong status displayed")
             XCTAssertEqual(message, failureMessage, "Wrong message displayed")
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut, handler: { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut, handler: { (error) in
             XCTAssertNil(error, "Timed Out \(String(describing: error?.localizedDescription))")
         })
     }
@@ -64,7 +64,7 @@ class CDViewControllerTests: XCTestCase {
         }, failureHandler: { (status, _) in
             XCTAssertEqual(status, false, "Incorrect status")
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut, handler: { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut, handler: { (error) in
             XCTAssertNil(error, "Timed Out \(String(describing: error?.localizedDescription))")
         })
     }

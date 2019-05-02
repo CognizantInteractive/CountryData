@@ -10,25 +10,19 @@ import Foundation
 import Reachability
 
 class ReachabilityManager: NSObject {
-    
     // Shared instance
     static let shared = ReachabilityManager()
-    
     // Tracks current NetworkStatus (notReachable, reachableViaWiFi, reachableViaWWAN)
     //var reachabilityStatus: Reachability.Connection!
-    
     // Reachibility instance for Network status monitoring
     let reachability = Reachability()!
-    
     /// Called whenever there is a change in NetworkReachibility Status
     ///
     /// — parameter notification: Notification with the Reachability instance
     @objc func reachabilityChanged(notification: Notification) {
         if let reachability = notification.object as? Reachability {
-            
-            let notificationNameON = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOnNotificationKey)
-            let notificationNameOFF = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOffNotificationKey)
-            
+            let notificationNameON = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOnNotifKey)
+            let notificationNameOFF = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOffNotifKey)
             switch reachability.connection {
             case .none:
                 NotificationCenter.default.post(name: notificationNameOFF, object: nil)
@@ -45,10 +39,8 @@ class ReachabilityManager: NSObject {
             }
         }
     }
-    
     /// Starts monitoring the network availability status
     func startMonitoring() {
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.reachabilityChanged),
                                                name: Notification.Name.reachabilityChanged,
@@ -59,7 +51,6 @@ class ReachabilityManager: NSObject {
             debugPrint("Could not start reachability notifier")
         }
     }
-    
     /// Stops monitoring the network availability status
     func stopMonitoring() {
         reachability.stopNotifier()

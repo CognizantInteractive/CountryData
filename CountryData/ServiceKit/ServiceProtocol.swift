@@ -14,5 +14,6 @@ protocol DataReceiver {
     /// - Parameters:
     ///   - completionHandler: success closure
     ///   - failureHandler: failure closure
-    func fetchCountryDataList(completionHandler: @escaping SuccessDataClosure, failureHandler: @escaping FailureDataClosure)
+    func fetchCountryDataList(completionHandler: @escaping SuccessDataClosure,
+                              failureHandler: @escaping FailureDataClosure)
 }

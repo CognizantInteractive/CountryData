@@ -11,26 +11,21 @@ import Reachability
 import NVActivityIndicatorView
 
 class CDViewController: UIViewController, NVActivityIndicatorViewable {
-    
     lazy var countryTableView: CDCountryTableView = {
         let countryTableView = CDCountryTableView(frame: self.view.frame, style: UITableView.Style.plain)
         countryTableView.translatesAutoresizingMaskIntoConstraints = false
         return countryTableView
     }()
-    
     var tvViewModel = CDViewModel()
     var reachability: Reachability?
-    let networkON = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOnNotificationKey)
-    let networkOFF = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOffNotificationKey)
-    
+    let networkON = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOnNotifKey)
+    let networkOFF = Notification.Name(rawValue: AppConstants.RecabilityConstants.networkOffNotifKey)
     var isReachable: Bool = true
-    
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
         return refreshControl
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reachability = Reachability.init()
@@ -40,7 +35,6 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
         countryTableView.layoutSubviews()
         tableViewConstraints()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if #available(iOS 10.0, *) {
@@ -50,21 +44,24 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
         }
         createNotificationObservers()
     }
-    
     /// Notification Observers
     func createNotificationObservers() {
         // Network ON
-        NotificationCenter.default.addObserver(self, selector: #selector(CDViewController.actOnNetworkON(notification:)), name: networkON, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(CDViewController.actOnNetworkON(notification:)),
+                                               name: networkON,
+                                               object: nil)
         // Network OFF
-        NotificationCenter.default.addObserver(self, selector: #selector(CDViewController.actOnNetworkOFF(notification:)), name: networkOFF, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(CDViewController.actOnNetworkOFF(notification:)),
+                                               name: networkOFF,
+                                               object: nil)
     }
-    
     @objc func actOnNetworkON(notification: NSNotification) {
         self.isReachable = true
         debugPrint("CHECKING REACHABILITY NOTIFICATION FROM OFF to ON")
         getTableViewList()
     }
-    
     @objc func actOnNetworkOFF(notification: NSNotification) {
         self.isReachable = false
         debugPrint("CHECKING REACHABILITY NOTIFICATION FROM ON to OFF")
@@ -72,10 +69,10 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
             self.stopAnimating(nil)
             self.countryTableView.refreshControl?.endRefreshing()
             // self.refresher.endRefreshing()
-            self.showAlertWith(title: AppConstants.AlertConstants.alertHeader, message: AppConstants.AlertConstants.alertOffLineMessage)
+            self.showAlertWith(title: AppConstants.AlertConstants.alertHeader,
+                               message: AppConstants.AlertConstants.alertOffLineMessage)
         }
     }
-    
     /// Refresh Controller Actions
     ///
     /// - Parameter sender: refresher
@@ -89,7 +86,6 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
         self.countryTableView.refreshControl?.endRefreshing()
         refresher.endRefreshing()
     }
-    
     /// SafeArea Layout for TableView
     func tableViewConstraints() {
         NSLayoutConstraint.activate([
@@ -99,9 +95,9 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
             countryTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }
-    
     /// Call ViewModel to fetch Data
-    func fetchDataUsingViewModel(completionHandler: @escaping SuccessClosure, failureHandler: @escaping FailureClosure) {
+    func fetchDataUsingViewModel(completionHandler: @escaping SuccessClosure,
+                                 failureHandler: @escaping FailureClosure) {
         debugPrint("IS REACHABLE:......>", isReachable as Any)
         if self.isReachable == true {
             getTableViewDataWhenRefreshed(completionHandler: { (status, message) in
@@ -116,14 +112,17 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
             failureHandler(false, AppConstants.AlertConstants.alertOffLineMessage)
         }
     }
-    
     ///  Get table View list data
     func getTableViewList() {
         let customActivityIndicatorFrame = CGSize(width: 50, height: 50)
-        self.startAnimating(customActivityIndicatorFrame, message: AppConstants.CustomActivityIndicatorConstants.activityIndicatorMessage, type: NVActivityIndicatorType.lineScale, color: UIColor.green, backgroundColor: UIColor.white, textColor: UIColor.black)
+        self.startAnimating(customActivityIndicatorFrame,
+                            message: AppConstants.CustomActivityIndicatorConstants.activityIndicatorMessage,
+                            type: NVActivityIndicatorType.lineScale,
+                            color: UIColor.green,
+                            backgroundColor: UIColor.white,
+                            textColor: UIColor.black)
         getCountryDetails()
     }
-    
     /// Get country details
     func getCountryDetails() {
         let dispatchQueue = DispatchQueue(label: AppConstants.customQueueIdentifier, qos: .background)
@@ -140,7 +139,6 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
             })
         }
     }
-    
     /// Parsing success
     func whenParsingIsSuccess() {
         self.countryTableView.reloadData()
@@ -156,7 +154,6 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
             }
         }
     }
-    
     /// Parsing failure
     ///
     /// - Parameter error: error message
@@ -165,9 +162,9 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
         self.stopAnimating(nil)
         self.showAlertWith(title: AppConstants.AlertConstants.alertHeader, message: error)
     }
-    
     /// Get tableView Data refreshed
-    func getTableViewDataWhenRefreshed(completionHandler: @escaping SuccessClosure, failureHandler: @escaping FailureClosure) {
+    func getTableViewDataWhenRefreshed(completionHandler: @escaping SuccessClosure,
+                                       failureHandler: @escaping FailureClosure) {
         let dispatchQueue = DispatchQueue(label: AppConstants.customQueueIdentifier, qos: .background)
         dispatchQueue.async {
             self.tvViewModel.getTVList(completionHandler: { (_, _) in
@@ -182,9 +179,7 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
                 failureHandler(false, AppConstants.AlertConstants.alertRefreshFailure)
             })
         }
-        
     }
-    
     /// Display Alert
     ///
     /// - Parameters:

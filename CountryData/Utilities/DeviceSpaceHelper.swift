@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class CalculateDeviceFreeSpace: NSObject {
-    
     /// Calculate device free space
     ///
     /// - Returns: free space in MB

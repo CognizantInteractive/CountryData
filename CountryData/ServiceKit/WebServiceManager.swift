@@ -14,7 +14,8 @@ class WebServiceManager: DataReceiver {
     /// - Parameters:
     ///   - completionHandler: success closure
     ///   - failureHandler: failure closure
-    func fetchCountryDataList(completionHandler: @escaping SuccessDataClosure, failureHandler: @escaping FailureDataClosure) {
+    func fetchCountryDataList(completionHandler: @escaping SuccessDataClosure,
+                              failureHandler: @escaping FailureDataClosure) {
         let url = AppConstants.ServiceURL.baseURL + AppConstants.ServiceURL.countryURL
         let baseService = BaseService(serviceType: .GET, serviceURL: url, requestData: nil)
         baseService.invokeService(completionHandler: { (status, data) in

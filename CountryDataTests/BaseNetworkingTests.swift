@@ -27,7 +27,7 @@ class BaseNetworkingTests: XCTestCase {
             XCTAssertNil(error, "Error Occured \(String(describing: error?.localizedDescription))")
             XCTAssertEqual(status, false, "Wrong Failute status")
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut) { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut) { (error) in
             XCTAssertNil(error, "Test Timed Out \(String(describing: error?.localizedDescription))")
         }
     }
@@ -45,7 +45,7 @@ class BaseNetworkingTests: XCTestCase {
             XCTAssertEqual(status, false, "Wrong Failute status")
             expect.fulfill()
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut) { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut) { (error) in
             XCTAssertNil(error, "Test Timed Out \(String(describing: error?.localizedDescription))")
         }
     }

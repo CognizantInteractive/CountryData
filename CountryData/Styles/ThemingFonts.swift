@@ -21,7 +21,6 @@ struct Fonts {
     static let OpenSansRegular = "OpenSans-Regular"
     static let OpenSansSemiBold = "OpenSans-SemiBold"
     static let OpenSansSemiBoldItalic = "OpenSans-SemiBoldItalic"
-    
     static let LatoBlack = "Lato-Black"
     static let LatoBlackItalic = "Lato-BlackItalic"
     static let LatoBold = "Lato-Bold"
@@ -32,7 +31,6 @@ struct Fonts {
     static let LatoLight = "Lato-Light"
     static let LatoLightItalic = "Lato-LightItalic"
     static let LatoRegular = "Lato-Regular"
-    
 }
 
 struct TypeFace {
@@ -40,7 +38,6 @@ struct TypeFace {
     static let OpenSansBold = Fonts.OpenSansBold
     static let OpenSansSemibold = Fonts.OpenSansSemiBold
     static let OpenSansRegular = Fonts.OpenSansRegular
-    
     static let LatoRegular = Fonts.LatoRegular
     static let LatoMedium = Fonts.LatoBlack
     static let LatoSemiBold = Fonts.LatoBlack

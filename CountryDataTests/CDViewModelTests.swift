@@ -33,7 +33,7 @@ class CDViewModelTests: XCTestCase {
             XCTAssertEqual(status, false)
             XCTAssertNil(error, "Error Occured \(String(describing: error?.localizedDescription))")
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut, handler: { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut, handler: { (error) in
             XCTAssertNil(error, "Parse Timed Out \(String(describing: error?.localizedDescription))")
         })
     }
@@ -47,9 +47,13 @@ class CDViewModelTests: XCTestCase {
             do {
                 let responseData = try JSONDecoder().decode(TLResponseModel.self, from: data!)
                 let actualArray = responseData.rows
-                let fillerArray = actualArray?.filter {(($0.rdescription != nil) || ($0.rtitle != nil) || ($0.rimageHref != nil))}
-                let diff = (actualArray?.count ?? 0) - (fillerArray?.count ?? 0)
-                XCTAssertEqual(fillerArray?.count, (actualArray?.count)! - diff, "Wrong Filter")
+                let filterArray = actualArray?.filter {
+                        ($0.rdescription != nil) ||
+                        ($0.rtitle != nil) ||
+                        ($0.rimageHref != nil)
+                }
+                let diff = (actualArray?.count ?? 0) - (filterArray?.count ?? 0)
+                XCTAssertEqual(filterArray?.count, (actualArray?.count)! - diff, "Wrong Filter")
                 expect.fulfill()
             } catch {
                 XCTFail("error while Filtering Data \(error.localizedDescription)")
@@ -57,16 +61,8 @@ class CDViewModelTests: XCTestCase {
         }, failureHandler: { (_, error) in
             XCTAssertNil(error, "Error Occured \(String(describing: error?.localizedDescription))")
         })
-        self.waitForExpectations(timeout: AppConstants.HttpConstants.timeOut, handler: { (error) in
+        self.waitForExpectations(timeout: AppConstants.Http.timeOut, handler: { (error) in
             XCTAssertNil(error, "Filter Timed Out \(String(describing: error?.localizedDescription))")
         })
-    }
-    func testExample() {
-    }
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 }

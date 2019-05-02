@@ -12,7 +12,6 @@ import SDWebImage
 
 class CDTableViewCell: UITableViewCell {
     var indexPath: IndexPath?
-    
     var containerView: CustomView = {
         var containerView = CustomView()
         containerView.cornerRadius = 5.0
@@ -20,7 +19,6 @@ class CDTableViewCell: UITableViewCell {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
     }()
-    
     var titleLabel: UILabel = {
         var titleLabel = UILabel()
         titleLabel.font = ThemingFont.primaryLabelFont()
@@ -30,7 +28,6 @@ class CDTableViewCell: UITableViewCell {
         titleLabel.numberOfLines = 0
         return titleLabel
     }()
-    
     var descriptionLabel: UILabel = {
         var descLabel = UILabel()
         descLabel.font = ThemingFont.secondarylabelFont()
@@ -40,7 +37,6 @@ class CDTableViewCell: UITableViewCell {
         descLabel.numberOfLines = 0
         return descLabel
     }()
-    
     var photoImageView: UIImageView = {
         var photoImage = UIImageView()
         photoImage.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +44,6 @@ class CDTableViewCell: UITableViewCell {
         photoImage.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return photoImage
     }()
-    
     var stackContainerView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.vertical
@@ -58,12 +53,10 @@ class CDTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
     fileprivate func stackLayoutConstraints() {
         //Constraints
         stackContainerView.centerXAnchor.constraint(equalTo: self.containerView.centerXAnchor).isActive = true
     }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
@@ -79,11 +72,9 @@ class CDTableViewCell: UITableViewCell {
         self.stackContainerView.bindViewToSuperviewBounds(withConstant: 8.0)
         stackLayoutConstraints()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension CDTableViewCell: UITableViewCellConfigurable {
@@ -99,7 +90,9 @@ extension CDTableViewCell: UITableViewCellConfigurable {
         let placeholderImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
         self.photoImageView.sd_addActivityIndicator()
         self.photoImageView.sd_setIndicatorStyle(.gray)
-        self.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage, options: [.continueInBackground, .progressiveDownload]) { (_, error, _, _) in
+        self.photoImageView.sd_setImage(with: photoUrl,
+                                        placeholderImage: placeholderImage,
+                                        options: [.continueInBackground, .progressiveDownload]) {(_, error, _, _) in
             if let error = error {
                 debugPrint("Error while Downloading Image: ", error.localizedDescription)
             }
