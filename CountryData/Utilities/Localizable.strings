@@ -1,10 +1,11 @@
-/* 
-  Localizable.strings
-  CountryData
-
-  Created by Mohammad Jahid on 02/05/19.
-  Copyright © 2019 cognizant. All rights reserved.
-*/
+/*
+ Localizable.strings
+ CountryData
+ 
+ Created by Mohammad Jahid on 02/05/19.
+ Copyright © 2019 cognizant. All rights reserved.
+ Description - Used for app strings
+ */
 
 "kAlertHeader" = "Alert";
 "kAlertOffLineMessage" = "Network unreachable, Try connecting to network!";

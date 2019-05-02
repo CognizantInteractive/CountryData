@@ -4,7 +4,7 @@
 //
 //  Created by Mohammad Jahid on 30/04/19.
 //  Copyright © 2019 cognizant. All rights reserved.
-//
+//  Description - ViewController
 
 import UIKit
 import Reachability
@@ -71,6 +71,7 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
         DispatchQueue.main.async {
             self.stopAnimating(nil)
             self.countryTableView.refreshControl?.endRefreshing()
+            // self.refresher.endRefreshing()
             self.showAlertWith(title: AppConstants.AlertConstants.alertHeader, message: AppConstants.AlertConstants.alertOffLineMessage)
         }
     }
@@ -125,27 +126,18 @@ class CDViewController: UIViewController, NVActivityIndicatorViewable {
     
     /// Get country details
     func getCountryDetails() {
-        if let bytesMB = CalculateDeviceFreeSpace.deviceRemainingFreeSpaceInMegaBytes() {
-            debugPrint("free space: \(bytesMB)")
-            if bytesMB >= AppConstants.minimumFreeSpace {
-                let dispatchQueue = DispatchQueue(label: AppConstants.customQueueIdentifier, qos: .background)
-                dispatchQueue.async {
-                    self.tvViewModel.getTVList(completionHandler: { (_, _) in
-                        DispatchQueue.main.async {
-                            self.whenParsingIsSuccess()
-                            self.stopAnimating(nil)
-                        }
-                    }, failureHandler: {(_, errorMessage) in
-                        DispatchQueue.main.async {
-                            self.whenParsingFailure(error: errorMessage)
-                        }
-                    })
+        let dispatchQueue = DispatchQueue(label: AppConstants.customQueueIdentifier, qos: .background)
+        dispatchQueue.async {
+            self.tvViewModel.getTVList(completionHandler: { (_, _) in
+                DispatchQueue.main.async {
+                    self.whenParsingIsSuccess()
+                    self.stopAnimating(nil)
                 }
-            } else {
-                debugPrint(AppConstants.DeviceSpaceConstants.alertToFreeSpace)
-            }
-        } else {
-            debugPrint(AppConstants.DeviceSpaceConstants.deviceSpaceFailure)
+            }, failureHandler: {(_, errorMessage) in
+                DispatchQueue.main.async {
+                    self.whenParsingFailure(error: errorMessage)
+                }
+            })
         }
     }
     

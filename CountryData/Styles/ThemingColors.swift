@@ -4,7 +4,7 @@
 //
 //  Created by Mohammad Jahid on 02/05/19.
 //  Copyright © 2019 cognizant. All rights reserved.
-//
+//  Description - This file is used for Theme colors.
 
 import Foundation
 import UIKit

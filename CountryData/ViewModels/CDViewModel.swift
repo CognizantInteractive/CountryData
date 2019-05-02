@@ -4,21 +4,25 @@
 //
 //  Created by Mohammad Jahid on 30/04/19.
 //  Copyright © 2019 cognizant. All rights reserved.
-//
+//  Description - View model.
 
+import Foundation
 import UIKit
 
 class CDViewModel: NSObject {
     var tvData: [RowsModel]?
     var name: String?
     let tvDataReceiver = WebServiceManager() as DataReceiver
-    
     /// Function for Getting data
     ///
     /// - Parameters:
     ///   - completionHandler: On Sucess
     ///   - failureHandler: On Failure
     func getTVList(completionHandler: @escaping SuccessClosure, failureHandler: @escaping FailureClosure) {
+        
+        if let bytesMB = CalculateDeviceFreeSpace.deviceRemainingFreeSpaceInMegaBytes() {
+            debugPrint("free space: \(bytesMB)")
+            if bytesMB >= AppConstants.minimumFreeSpace {
                 tvDataReceiver.fetchCountryDataList(completionHandler: { [weak self] (_, data) in
                     if let modelObject = try? JSONDecoder().decode(TLResponseModel.self, from: data!) {
                         let parsedArray = modelObject.rows
@@ -33,7 +37,13 @@ class CDViewModel: NSObject {
                     }, failureHandler: { (_, _) in
                         failureHandler(false, AppConstants.ClosureConstants.errorDataReceived)
                 })
+            } else {
+                failureHandler(false, AppConstants.DeviceSpaceConstants.alertToFreeSpace)
             }
+        } else {
+            debugPrint(AppConstants.DeviceSpaceConstants.deviceSpaceFailure)
+        }
+    }
 }
 
 extension CDViewModel: UITableViewDataSource {

@@ -4,7 +4,7 @@
 //
 //  Created by Mohammad Jahid on 02/05/19.
 //  Copyright © 2019 cognizant. All rights reserved.
-//
+//  Description - This file is used for extending Views and IBInspectable properties.
 
 import Foundation
 import UIKit

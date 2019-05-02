@@ -4,7 +4,7 @@
 //
 //  Created by Mohammad Jahid on 02/05/19.
 //  Copyright © 2019 cognizant. All rights reserved.
-//
+//  Description - Tableview cell to display images, title and description.
 
 import Foundation
 import UIKit
