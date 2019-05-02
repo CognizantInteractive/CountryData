@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
+public struct AppConstants {
+    
+    public struct CellConstants {
+        public static let cellIdentifier = "cell"
+        public static let estimatedHeight: CGFloat = 44.0
+}
+}
