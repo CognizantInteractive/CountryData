@@ -39,6 +39,8 @@
 		6C930728227ACDB0002E7E2E /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C930727227ACDB0002E7E2E /* WebServiceManager.swift */; };
 		6C93072A227AD448002E7E2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C930729227AD448002E7E2E /* Localizable.strings */; };
 		6C93072C227AD66D002E7E2E /* AdherenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93072B227AD66D002E7E2E /* AdherenceProtocol.swift */; };
+		6C93072E227AF38B002E7E2E /* BaseNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93072D227AF38B002E7E2E /* BaseNetworkingTests.swift */; };
+		6C930730227AFB6D002E7E2E /* CDTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93072F227AFB6D002E7E2E /* CDTableViewCellTests.swift */; };
 		6CC0AB2B2278619A005A508D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB2A2278619A005A508D /* AppDelegate.swift */; };
 		6CC0AB2D2278619A005A508D /* CDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB2C2278619A005A508D /* CDViewController.swift */; };
 		6CC0AB32227861A0005A508D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC0AB31227861A0005A508D /* Assets.xcassets */; };
@@ -98,6 +100,8 @@
 		6C930727227ACDB0002E7E2E /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
 		6C930729227AD448002E7E2E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		6C93072B227AD66D002E7E2E /* AdherenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdherenceProtocol.swift; sourceTree = "<group>"; };
+		6C93072D227AF38B002E7E2E /* BaseNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkingTests.swift; sourceTree = "<group>"; };
+		6C93072F227AFB6D002E7E2E /* CDTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTableViewCellTests.swift; sourceTree = "<group>"; };
 		6CC0AB272278619A005A508D /* CountryData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC0AB2A2278619A005A508D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CC0AB2C2278619A005A508D /* CDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 			children = (
 				6CC0AB3F227861A0005A508D /* CountryDataTests.swift */,
 				6CC0AB41227861A0005A508D /* Info.plist */,
+				6C93072D227AF38B002E7E2E /* BaseNetworkingTests.swift */,
+				6C93072F227AFB6D002E7E2E /* CDTableViewCellTests.swift */,
 			);
 			path = CountryDataTests;
 			sourceTree = "<group>";
@@ -546,7 +552,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C93072E227AF38B002E7E2E /* BaseNetworkingTests.swift in Sources */,
 				6CC0AB40227861A0005A508D /* CountryDataTests.swift in Sources */,
+				6C930730227AFB6D002E7E2E /* CDTableViewCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

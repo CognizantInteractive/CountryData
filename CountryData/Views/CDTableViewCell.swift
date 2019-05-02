@@ -2,11 +2,12 @@
 //  CDTableViewCell.swift
 //  CountryData
 //
-//  Created by CTS iMac Sierra on 02/05/19.
+//  Created by Mohammad Jahid on 02/05/19.
 //  Copyright © 2019 cognizant. All rights reserved.
 //
 
 import UIKit
+import SDWebImage
 
 class CDTableViewCell: UITableViewCell {
     var indexPath: IndexPath?
@@ -83,3 +84,28 @@ class CDTableViewCell: UITableViewCell {
     }
     
 }
+extension CDTableViewCell: UITableViewCellConfigurable {
+    /// Cell Configurable
+    ///
+    /// - Parameter model: model type
+    func configureCell(model: RowsModel) {
+        self.layoutSubviews()
+        self.layoutIfNeeded()
+        self.titleLabel.text = model.rtitle ?? ""
+        self.descriptionLabel.text = model.rdescription ?? ""
+        let photoUrl = URL(string: model.rimageHref ?? "")
+        let placeholderImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
+        self.photoImageView.sd_addActivityIndicator()
+        self.photoImageView.sd_setIndicatorStyle(.gray)
+        self.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage, options: [.continueInBackground, .progressiveDownload]) { (_, error, _, _) in
+            if let error = error {
+                debugPrint("Error while Downloading Image: ", error.localizedDescription)
+            }
+            self.photoImageView.sd_removeActivityIndicator()
+        }
+        if model.rimageHref == nil {
+            self.photoImageView.isHidden = true
+        } else {
+            self.photoImageView.isHidden = false
+        }
+    }}
