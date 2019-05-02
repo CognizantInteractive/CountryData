@@ -34,6 +34,11 @@
 		6C93071E227AC5DB002E7E2E /* ThemingColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93071D227AC5DB002E7E2E /* ThemingColors.swift */; };
 		6C930720227AC5F5002E7E2E /* ThemingFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93071F227AC5F5002E7E2E /* ThemingFonts.swift */; };
 		6C930722227AC916002E7E2E /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C930721227AC916002E7E2E /* ViewExtensions.swift */; };
+		6C930724227ACCB2002E7E2E /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C930723227ACCB2002E7E2E /* BaseServices.swift */; };
+		6C930726227ACCF9002E7E2E /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C930725227ACCF9002E7E2E /* ServiceProtocol.swift */; };
+		6C930728227ACDB0002E7E2E /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C930727227ACDB0002E7E2E /* WebServiceManager.swift */; };
+		6C93072A227AD448002E7E2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C930729227AD448002E7E2E /* Localizable.strings */; };
+		6C93072C227AD66D002E7E2E /* AdherenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C93072B227AD66D002E7E2E /* AdherenceProtocol.swift */; };
 		6CC0AB2B2278619A005A508D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB2A2278619A005A508D /* AppDelegate.swift */; };
 		6CC0AB2D2278619A005A508D /* CDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB2C2278619A005A508D /* CDViewController.swift */; };
 		6CC0AB32227861A0005A508D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC0AB31227861A0005A508D /* Assets.xcassets */; };
@@ -88,6 +93,11 @@
 		6C93071D227AC5DB002E7E2E /* ThemingColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemingColors.swift; sourceTree = "<group>"; };
 		6C93071F227AC5F5002E7E2E /* ThemingFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemingFonts.swift; sourceTree = "<group>"; };
 		6C930721227AC916002E7E2E /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		6C930723227ACCB2002E7E2E /* BaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
+		6C930725227ACCF9002E7E2E /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		6C930727227ACDB0002E7E2E /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
+		6C930729227AD448002E7E2E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		6C93072B227AD66D002E7E2E /* AdherenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdherenceProtocol.swift; sourceTree = "<group>"; };
 		6CC0AB272278619A005A508D /* CountryData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC0AB2A2278619A005A508D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CC0AB2C2278619A005A508D /* CDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +264,8 @@
 			children = (
 				6CC0AB59227864BB005A508D /* Constants.swift */,
 				6C930721227AC916002E7E2E /* ViewExtensions.swift */,
+				6C930729227AD448002E7E2E /* Localizable.strings */,
+				6C93072B227AD66D002E7E2E /* AdherenceProtocol.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -262,6 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				6CC0AB5722786494005A508D /* ServiceHelper.swift */,
+				6C930723227ACCB2002E7E2E /* BaseServices.swift */,
+				6C930725227ACCF9002E7E2E /* ServiceProtocol.swift */,
+				6C930727227ACDB0002E7E2E /* WebServiceManager.swift */,
 			);
 			path = ServiceKit;
 			sourceTree = "<group>";
@@ -396,6 +411,7 @@
 				6C93070C227AC545002E7E2E /* Lato-HairlineItalic.ttf in Resources */,
 				6C930709227AC545002E7E2E /* Lato-Bold.ttf in Resources */,
 				6CC0AB35227861A0005A508D /* LaunchScreen.storyboard in Resources */,
+				6C93072A227AD448002E7E2E /* Localizable.strings in Resources */,
 				6C930712227AC545002E7E2E /* LICENSE.txt in Resources */,
 				6C93070E227AC545002E7E2E /* Lato-Light.ttf in Resources */,
 				6C930717227AC545002E7E2E /* OpenSans-Italic.ttf in Resources */,
@@ -510,9 +526,13 @@
 				6CC0AB2D2278619A005A508D /* CDViewController.swift in Sources */,
 				6C9306ED227AC4C2002E7E2E /* CDTableViewCell.swift in Sources */,
 				6CC0AB5C2278686E005A508D /* CDCountryTableView.swift in Sources */,
+				6C93072C227AD66D002E7E2E /* AdherenceProtocol.swift in Sources */,
 				6C930720227AC5F5002E7E2E /* ThemingFonts.swift in Sources */,
 				6CC0AB2B2278619A005A508D /* AppDelegate.swift in Sources */,
+				6C930728227ACDB0002E7E2E /* WebServiceManager.swift in Sources */,
+				6C930726227ACCF9002E7E2E /* ServiceProtocol.swift in Sources */,
 				6CC0AB52227863C6005A508D /* CDModel.swift in Sources */,
+				6C930724227ACCB2002E7E2E /* BaseServices.swift in Sources */,
 				6CC0AB5422786402005A508D /* CDViewModel.swift in Sources */,
 				6C93071E227AC5DB002E7E2E /* ThemingColors.swift in Sources */,
 				6CC0AB5A227864BB005A508D /* Constants.swift in Sources */,
