@@ -19,7 +19,6 @@ class CDViewModel: NSObject {
     ///   - completionHandler: On Sucess
     ///   - failureHandler: On Failure
     func getTVList(completionHandler: @escaping SuccessClosure, failureHandler: @escaping FailureClosure) {
-        
                 tvDataReceiver.fetchCountryDataList(completionHandler: { [weak self] (_, data) in
                     if let modelObject = try? JSONDecoder().decode(TLResponseModel.self, from: data!) {
                         let parsedArray = modelObject.rows

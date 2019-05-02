@@ -6,7 +6,18 @@
   Copyright © 2019 cognizant. All rights reserved.
 */
 
+"kAlertHeader" = "Alert";
+"kAlertOffLineMessage" = "Network unreachable, Try connecting to network!";
+"kAlertActionOk" = "Ok";
+"kAlertFetchFailure" = "Unable to fetch Data, Please try after sometime.";
 "kSuccessDecodeMessage" = "Successfully decoded data";
 "kUnsuccessDecodeMessage" = "Unable to decode data";
 "kErrorDataReceived" = "Error Data received";
+"kNetworkOnNotificationKey" = "co.telstra.networkON";
+"kNetworkOffNotificationKey" = "co.telstra.networkOFF";
 "kActivityIndicatorMessage" = "Loading...";
+"kAlertToFreeSpace" = "Not enough space, Please create some space";
+"kDeviceSpaceFailure" = "failed to get Device Free Space";
+"kInternalDeviceSpaceCalculationFailure" = "Some Internal failure, Unable to calculate device free space";
+"kRefreshfailure" = "Unable to refresh Data";
+"kRefreshSuccess" = "Refreshed data successfully";

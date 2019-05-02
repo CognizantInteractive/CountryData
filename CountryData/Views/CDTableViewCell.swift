@@ -6,6 +6,7 @@
 //  Copyright © 2019 cognizant. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SDWebImage
 
@@ -84,6 +85,7 @@ class CDTableViewCell: UITableViewCell {
     }
     
 }
+
 extension CDTableViewCell: UITableViewCellConfigurable {
     /// Cell Configurable
     ///
@@ -108,4 +110,5 @@ extension CDTableViewCell: UITableViewCellConfigurable {
         } else {
             self.photoImageView.isHidden = false
         }
-    }}
+    }
+}
