@@ -10,13 +10,9 @@ import XCTest
 @testable import CountryData
 
 class CDTableViewCellTests: XCTestCase {
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     // Negetive Test
     // TEST TABLEVIEW CEll: sd_setImage should not return error with valid image url
@@ -34,7 +30,6 @@ class CDTableViewCellTests: XCTestCase {
             XCTAssertNil(error, "Timed Out \(String(describing: error?.localizedDescription))")
         })
     }
-    
     // Possitive Test
     // TEST TABLE VIEW CEll:  sd_setImage should return error with invalid image url
     func testImageDownloadWithInvalidUrl() {
@@ -49,5 +44,4 @@ class CDTableViewCellTests: XCTestCase {
         }
         self.waitForExpectations(timeout: 30.0, handler: nil)
     }
-
 }

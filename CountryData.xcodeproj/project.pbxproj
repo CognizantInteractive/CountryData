@@ -49,7 +49,6 @@
 		6CC0AB2D2278619A005A508D /* CDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB2C2278619A005A508D /* CDViewController.swift */; };
 		6CC0AB32227861A0005A508D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC0AB31227861A0005A508D /* Assets.xcassets */; };
 		6CC0AB35227861A0005A508D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC0AB33227861A0005A508D /* LaunchScreen.storyboard */; };
-		6CC0AB40227861A0005A508D /* CountryDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB3F227861A0005A508D /* CountryDataTests.swift */; };
 		6CC0AB52227863C6005A508D /* CDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB51227863C6005A508D /* CDModel.swift */; };
 		6CC0AB5422786402005A508D /* CDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB5322786402005A508D /* CDViewModel.swift */; };
 		6CC0AB5622786450005A508D /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0AB5522786450005A508D /* ReachabilityManager.swift */; };
@@ -117,7 +116,6 @@
 		6CC0AB34227861A0005A508D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CC0AB36227861A0005A508D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC0AB3B227861A0005A508D /* CountryDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountryDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CC0AB3F227861A0005A508D /* CountryDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataTests.swift; sourceTree = "<group>"; };
 		6CC0AB41227861A0005A508D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC0AB51227863C6005A508D /* CDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDModel.swift; sourceTree = "<group>"; };
 		6CC0AB5322786402005A508D /* CDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDViewModel.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 		6CC0AB3E227861A0005A508D /* CountryDataTests */ = {
 			isa = PBXGroup;
 			children = (
-				6CC0AB3F227861A0005A508D /* CountryDataTests.swift */,
 				6CC0AB41227861A0005A508D /* Info.plist */,
 				6C93072D227AF38B002E7E2E /* BaseNetworkingTests.swift */,
 				6C93072F227AFB6D002E7E2E /* CDTableViewCellTests.swift */,
@@ -567,7 +564,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C93072E227AF38B002E7E2E /* BaseNetworkingTests.swift in Sources */,
-				6CC0AB40227861A0005A508D /* CountryDataTests.swift in Sources */,
 				6C930730227AFB6D002E7E2E /* CDTableViewCellTests.swift in Sources */,
 				6C930736227B05D8002E7E2E /* CDViewModelTests.swift in Sources */,
 				6C93073A227B0753002E7E2E /* CDViewControllerTests.swift in Sources */,

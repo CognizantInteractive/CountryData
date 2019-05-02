@@ -10,17 +10,13 @@ import XCTest
 @testable import CountryData
 
 class CDViewModelTests: XCTestCase {
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
     /// Possitive Test
-    /// TEST VIEWMODEL - JSON parsing should occur correctly and provide the parsed response data without error
+    /// TEST VIEWMODEL - JSON parsing should occur correctly and
+    //                    provide the parsed response data without error
     func testParshingDataInViewModel() {
         let expect = expectation(description: "Country List Data Parse Expectation")
         let webServiceManger = WebServiceManager()
@@ -42,7 +38,6 @@ class CDViewModelTests: XCTestCase {
             XCTAssertNil(error, "Parse Timed Out \(String(describing: error?.localizedDescription))")
         })
     }
-    
     /// Negetive Test
     /// TEST VIEWMODEL - Country table view datasource array should not have nil data
     func testDataSourceArrayWithAllNil() {
@@ -68,15 +63,11 @@ class CDViewModelTests: XCTestCase {
         })
     }
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

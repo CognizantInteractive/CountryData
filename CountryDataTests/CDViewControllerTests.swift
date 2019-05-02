@@ -10,13 +10,9 @@ import XCTest
 @testable import CountryData
 
 class CDViewControllerTests: XCTestCase {
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     // Possitive Test
     // TEST VIEWCONTROLLER:  Should return correct success/failure status and message
@@ -55,7 +51,8 @@ class CDViewControllerTests: XCTestCase {
         })
     }
     // Possitive Test
-    // TEST VIEWCONTROLLER:  Should fetch data using viewmodel and return correct success/failure status and message upon refreshing
+    // TEST VIEWCONTROLLER:  Should fetch data using viewmodel and
+    //                         return correct success/failure status and message upon refreshing
     func testFetchDataWithViewModel() {
         let expect = expectation(description: "Correct fetch Data success/failure status and message expectations")
         let viewController = CDViewController()
@@ -71,5 +68,4 @@ class CDViewControllerTests: XCTestCase {
             XCTAssertNil(error, "Timed Out \(String(describing: error?.localizedDescription))")
         })
     }
-
 }
