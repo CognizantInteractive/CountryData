@@ -22,8 +22,8 @@ class CDTableViewCellTests: XCTestCase {
         let validImageUrl = AppConstants.ImageURLConstants.validImageUrl
         let photoUrl = URL(string: validImageUrl)
         let placeholderImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
-        tableViewCell.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage, options: [.continueInBackground, .progressiveDownload]) { (_, error, _, _) in
-            XCTAssertNil(error, "Error received: \(String(describing: error?.localizedDescription))")
+        tableViewCell.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage) { (_, error, _, _) in
+            XCTAssertNil(error, "Error received")
             expect.fulfill()
         }
         self.waitForExpectations(timeout: 10.0, handler: { (error) in
@@ -38,7 +38,7 @@ class CDTableViewCellTests: XCTestCase {
         let inValidImageUrl = AppConstants.ImageURLConstants.inValidImageUrl
         let photoUrl = URL(string: inValidImageUrl)
         let placeholderImage = UIImage(named: AppConstants.ImageConstants.defaultImage)
-        tableViewCell.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage, options: [.continueInBackground, .progressiveDownload]) { (_, error, _, _) in
+        tableViewCell.photoImageView.sd_setImage(with: photoUrl, placeholderImage: placeholderImage) { (_, error, _, _) in
             XCTAssertNotNil(error, "No error received")
             expect.fulfill()
         }
